@@ -37,7 +37,7 @@ export const EntryList = ({ moods, entries, onEditButtonClick, onDeleteButtonCli
             return <a
               onClick={() => filterAllEntries(mood.id)}
               className={moodSelected === mood.id ? "is-active" : ""}
-            >{mood.label}</a>
+            >{mood.lable}</a>
           })
         }
       </p>
@@ -63,7 +63,7 @@ export const EntryList = ({ moods, entries, onEditButtonClick, onDeleteButtonCli
           <Entry
             key={entry.id}
             entry={entry}
-            mood={moods.find(m => m.id === entry.moodId)}
+            mood={entry.mood?.lable}
             onEditButtonClick={onEditButtonClick}
             onDeleteButtonClick={onDeleteButtonClick}
           />
@@ -72,3 +72,5 @@ export const EntryList = ({ moods, entries, onEditButtonClick, onDeleteButtonCli
     </article>
   );
 };
+
+// mood={moods.find(m => m.id === entry.moodId)}

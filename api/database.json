@@ -32,19 +32,23 @@
   "moods": [
     {
       "id": 1,
-      "label": "Happy"
+      "lable": "Feelin Angry"
     },
     {
       "id": 2,
-      "label": "Sad"
+      "lable": "Feelin Content"
     },
     {
       "id": 3,
-      "label": "Angry"
+      "lable": "Feelin Frustrated"
     },
     {
       "id": 4,
-      "label": "Ok"
+      "lable": "Feelin Good"
+    },
+    {
+      "id": 5,
+      "lable": "Feelin a lil Sad"
     }
   ]
 }

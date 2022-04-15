@@ -48,7 +48,8 @@ export const DailyJournal = () => {
     setEntry({
       concept: "",
       entry: "",
-      moodId: 0
+      moodId: 0,
+      tagId: 0
     })
   }
 
@@ -56,12 +57,13 @@ export const DailyJournal = () => {
     <div className="DailyJournal container">
       <div className="columns">
         <div className="column">
-          <EntryForm entry={entry} moods={moods} onFormSubmit={onFormSubmit} />
+          <EntryForm entry={entry} moods={moods} tags={tags} onFormSubmit={onFormSubmit} />
         </div>
         <div className="column">
           <EntryList
             entries={entries}
             moods={moods}
+            tags={tags}
             onEditButtonClick={onEditButtonClick}
             onDeleteButtonClick={onDeleteButtonClick}
           />

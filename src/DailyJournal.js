@@ -3,19 +3,30 @@ import { EntryForm } from "./components/EntryForm";
 import { EntryList } from "./components/EntryList";
 import { addEntry, deleteEntry, getEntries, getEntryById, updateEntry } from "./components/EntryManager";
 import { getMoods } from "./components/mood/MoodManager";
+import { getTags } from "./components/tag/TagManager";
 
 export const DailyJournal = () => {
   const [entries, setEntries] = useState([])
   const [moods, setMoods] = useState([])
   const [entry, setEntry] = useState({})
+  const [tags, setTags] = useState([])
 
   useEffect(() => {
     getAllEntries()
-    getMoods().then(moodsData => setMoods(moodsData))
+    getAllMoods()
+    getAllTags()
   }, [])
 
   const getAllEntries = () => {
     getEntries().then(entriesData => setEntries(entriesData))
+  }
+  
+  const getAllTags = () => {
+    getTags().then(tagsData => setTags(tagsData))
+  }
+
+  const getAllMoods = ()=>{
+    getMoods().then(moodsData => setMoods(moodsData))
   }
 
   const onEditButtonClick = (entryId) => {

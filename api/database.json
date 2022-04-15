@@ -50,5 +50,32 @@
       "id": 5,
       "lable": "Feelin a lil Sad"
     }
+  ],
+  "tags": [
+      {
+        "id": 1,
+        "name": "New Concept"
+      },
+      {
+        "id": 2,
+        "name": "Challenging"
+      },
+      {
+        "id": 3,
+        "name": "Easy"
+      },
+      {
+        "id": 4,
+        "name": "Intermediate"
+      },
+      {
+        "id": 5,
+        "name": "Interesting"
+      },
+      {
+        "id": 6,
+        "name": "Dull"
+      }
   ]
+
 }

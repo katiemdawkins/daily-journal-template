@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 
-export const EntryForm = ({ entry, moods, onFormSubmit }) => {
+export const EntryForm = ({ entry, moods, tags, onFormSubmit }) => {
     const [editMode, setEditMode] = useState(false)
     const [updatedEntry, setUpdatedEntry] = useState(entry)
 
@@ -54,6 +54,7 @@ export const EntryForm = ({ entry, moods, onFormSubmit }) => {
                     <div className="field">
                         <label htmlFor="entry" className="label">Entry: </label>
                         <div className="control">
+                            {}
                             <textarea
                                 class="textarea"
                                 name="entry"
@@ -80,6 +81,19 @@ export const EntryForm = ({ entry, moods, onFormSubmit }) => {
                                 </select>
                             </div>
                         </div>
+                    </div>
+                    <div className="field">
+                        <label htmlFor="tagId" className="label">Tags: </label>
+                        <div className="control">
+                            <input
+                                type="checkbox" 
+                                className="custom-control-input"
+                            />
+                            {tags.map((tag)=>{
+                                <label htmlFor="tagName" className="label">{tag.name}</label> 
+                                })}
+                            </div>
+
                     </div>
                     <div className="field">
                         <div className="control">

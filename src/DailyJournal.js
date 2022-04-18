@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { EntryForm } from "./components/EntryForm";
 import { EntryList } from "./components/EntryList";
 import { addEntry, deleteEntry, getEntries, getEntryById, updateEntry } from "./components/EntryManager";
+import { getEntryTags } from "./components/entrytag/EntryTagManager";
 import { getMoods } from "./components/mood/MoodManager";
 import { getTags } from "./components/tag/TagManager";
 
@@ -10,10 +11,12 @@ export const DailyJournal = () => {
   const [moods, setMoods] = useState([])
   const [entry, setEntry] = useState({})
   const [tags, setTags] = useState([])
+  const [entryTags, setEntryTags] = useState([])
 
   useEffect(() => {
     getAllEntries()
     getAllMoods()
+    getAllEntryTags()
     getAllTags()
   }, [])
 
@@ -21,6 +24,10 @@ export const DailyJournal = () => {
     getEntries().then(entriesData => setEntries(entriesData))
   }
   
+  const getAllEntryTags = () => {
+    getEntryTags().then(eTdata => setEntryTags(eTdata))
+  }
+
   const getAllTags = () => {
     getTags().then(tagsData => setTags(tagsData))
   }
@@ -52,6 +59,11 @@ export const DailyJournal = () => {
       tagId: 0
     })
   }
+
+  //function to connect entry tags with tag name?
+  // const entryTagList = () => {
+//if tags.id === entryTags.tagId
+  // }
 
   return (
     <div className="DailyJournal container">

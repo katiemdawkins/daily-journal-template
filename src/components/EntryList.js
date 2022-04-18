@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Entry } from "./Entry";
 import { searchEntries } from "./EntryManager";
+import { getEntryTags } from "./entrytag/EntryTagManager";
 
 export const EntryList = ({ moods, entries, tags, onEditButtonClick, onDeleteButtonClick }) => {
 
   const [filteredEntries, setEntries] = useState([]);
   const [searchedTerm, setTerm] = useState("");
   const [moodSelected, setMoodSelected] = useState("");
+  //const [tags, setTags] = useState([])
 
   useEffect(() => {
     if (searchedTerm !== "") {
@@ -15,6 +17,11 @@ export const EntryList = ({ moods, entries, tags, onEditButtonClick, onDeleteBut
       setEntries(entries)
     }
   }, [searchedTerm, entries])
+
+  // useEffect(()=>{
+  //   getEntryTags()
+  //   .then( tagsData => setTags (tagsData))
+  // },[])
 
 
   const filterAllEntries = (moodId) => {
@@ -64,7 +71,7 @@ export const EntryList = ({ moods, entries, tags, onEditButtonClick, onDeleteBut
             key={entry.id}
             entry={entry}
             mood={entry.mood?.lable}
-            tags={entry.tags?.name}
+            tag={entry.tag?.name}
             onEditButtonClick={onEditButtonClick}
             onDeleteButtonClick={onDeleteButtonClick}
           />

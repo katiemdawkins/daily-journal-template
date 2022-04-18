@@ -1,6 +1,8 @@
 import React from "react";
 
+//this is what a single entry will look like 
 export const Entry = ({ entry, mood, onEditButtonClick, onDeleteButtonClick }) => {
+
   const getMessageType = () => {
     if (mood) {
       switch (mood.lable) {
@@ -27,7 +29,9 @@ export const Entry = ({ entry, mood, onEditButtonClick, onDeleteButtonClick }) =
         <p className="entry__entry">{entry.entry}</p>
         <p className="entry__date">{entry.date}</p>
         <p className="entry__mood">{entry.mood?.lable}</p>
-        <p className="entry__tag">{entry.tag?.name}</p>
+        {
+          entry.tags.map(tag => <p className="entry__tag">{tag.name}</p>) 
+        }
         <div className="buttons">
           <button className={`button ${getMessageType()} is-outlined`} onClick={
             () => {

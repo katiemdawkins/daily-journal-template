@@ -5,6 +5,7 @@ export const EntryForm = ({ entry, moods, tags, onFormSubmit }) => {
     const [updatedEntry, setUpdatedEntry] = useState(entry)
     const [tagIds, setTagIds] = useState([])
 
+    //checking too see if this is an edit or a brand new entry
     useEffect(() => {
         setUpdatedEntry(entry)
         if ('id' in entry) {
